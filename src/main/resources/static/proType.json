@@ -1,0 +1,18 @@
+[
+	      {
+	        "proType":"010",
+			"tpeName":"电器"
+	      },
+		  {
+	        "proType":"020",
+			"tpeName":"饰品"
+	      },
+		  {
+	        "proType":"030",
+			"tpeName":"食物"
+	      },
+		   {
+	        "proType":"040",
+			"tpeName":"衣物"
+	      }
+]
