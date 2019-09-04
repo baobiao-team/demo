@@ -32,6 +32,7 @@ public class TestController {
 	
     @RequestMapping(path = "findall", method = RequestMethod.GET)
     public String pro(String proType) throws Exception {
+    	System.out.println("proType:"+proType);
     	File f = new File(file);
     	if(!f.exists()) {
     		throw new Exception("no file:"+f.toString());
@@ -41,13 +42,15 @@ public class TestController {
     	Pro[] pros = objectMapper.readValue(FileToString(f), Pro[].class);
     	
     	List<Pro> list = new ArrayList<Pro>();
-    	if(!"000".equals(proType)) {
+    	if((!"".equals(proType)) && (proType != null)) {
+    		System.out.println("1:");
         	for (Pro pro : pros) {
         		if(pro.getProType().equals(proType)) {
         			list.add(pro);
         		}
             }
     	}else {
+    		System.out.println("2:");
     		for (Pro pro : pros) {
         		list.add(pro);
             }
