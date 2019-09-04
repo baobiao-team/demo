@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import hello.mall.mpvue.been.Pro;
 
 @RestController
-@RequestMapping("/classify")
+@RequestMapping("/user/proinfouser")
 public class TestController {
 
 	@Value("${pro.classify}")
@@ -30,8 +30,8 @@ public class TestController {
 	@Value("${pro.type}")
     private String typeFile;
 	
-    @RequestMapping(path = "{proType}", method = RequestMethod.GET)
-    public String pro(@PathVariable(value = "proType") String proType) throws Exception {
+    @RequestMapping(path = "findall", method = RequestMethod.GET)
+    public String pro(String proType) throws Exception {
     	File f = new File(file);
     	if(!f.exists()) {
     		throw new Exception("no file:"+f.toString());
@@ -56,7 +56,7 @@ public class TestController {
     	return objectMapper.writeValueAsString(list);
     }
     
-    @RequestMapping(path = "type")
+    @RequestMapping(path = "findprotype")
     public String typePro(String name) throws Exception {
     	File f = new File(typeFile);
     	if(!f.exists()) {
