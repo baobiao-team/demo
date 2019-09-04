@@ -67,9 +67,7 @@ public class TestController {
         } catch (IOException e) {
             
 
-        }
-        System.out.println("-------------------------------------");
-        System.out.println(result);
+        }        
         return result;
     }
 

@@ -22,9 +22,9 @@ public class CardController {
 	
 	private String proString = "pro.json";
 
-    @RequestMapping(path = "{proType}", method = RequestMethod.GET)
-    public String pro(@PathVariable(value = "proType") String proType) throws Exception {
-    	String fname = file + proType +File.separator+proString;
+    @RequestMapping(path = "{UserId}", method = RequestMethod.GET)
+    public String pro(@PathVariable(value = "proType") String UserId) throws Exception {
+    	String fname = file + UserId +File.separator+proString;
     	File f = new File(fname);
     	if(!f.exists()) {
     		throw new Exception("no file:"+f.toString());
@@ -33,11 +33,12 @@ public class CardController {
     	return FileToString(f);
     }
     @RequestMapping(path = "cartinfo")
-    public String typePro(String name) throws Exception {
+    public String typePro(String UserId) throws Exception {
     	File f = new File(typeFile);
     	if(!f.exists()) {
     		throw new Exception("no file:"+f.toString());
     	};
+    	System.out.println(UserId);
     	return FileToString(f);
     }
     public String FileToString(File f){
