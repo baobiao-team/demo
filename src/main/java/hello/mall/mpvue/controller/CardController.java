@@ -3,25 +3,21 @@ package hello.mall.mpvue.controller;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/classify")
-public class TestController {
-
+@RequestMapping("/user")
+public class CardController {
 	@Value("${pro.classify}")
     private String file;
-	@Value("${pro.type}")
+	@Value("${pro.card}")
     private String typeFile;
 	
 	private String proString = "pro.json";
@@ -36,7 +32,7 @@ public class TestController {
     	
     	return FileToString(f);
     }
-    @RequestMapping(path = "type")
+    @RequestMapping(path = "cartinfo")
     public String typePro(String name) throws Exception {
     	File f = new File(typeFile);
     	if(!f.exists()) {
@@ -72,5 +68,6 @@ public class TestController {
         System.out.println(result);
         return result;
     }
+
 
 }
