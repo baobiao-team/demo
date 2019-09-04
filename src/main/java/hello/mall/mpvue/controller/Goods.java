@@ -88,5 +88,4 @@ public class Goods {
 				+ proAddress + ", proType=" + proType + ", proNum=" + proNum + ", proDisc=" + proDisc + ", proImg="
 				+ proImg + "}";
 	}
-	
 }

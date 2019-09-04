@@ -54,7 +54,6 @@ public class DetailController {
 		  }
          System.out.println(printgoods);
          return printgoods;
-
     }
 
 }
