@@ -19,7 +19,7 @@ import hello.mall.mpvue.controller.utils.utils;
 @RequestMapping("/details")
 public class DetailController {
 	
-	@Value("${pro.classify}")
+	@Value("${pro.goods}")
     private String file;
 	
 	private String proString = "goods.json";
