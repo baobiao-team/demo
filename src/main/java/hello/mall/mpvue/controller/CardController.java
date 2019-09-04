@@ -3,68 +3,42 @@ package hello.mall.mpvue.controller;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import hello.mall.mpvue.been.Pro;
-
 @RestController
-@RequestMapping("/user/proinfouser")
-public class TestController {
-
+@RequestMapping("/user")
+public class CardController {
 	@Value("${pro.classify}")
     private String file;
-	@Value("${pro.type}")
+	@Value("${pro.card}")
     private String typeFile;
 	
-    @RequestMapping(path = "findall", method = RequestMethod.GET)
-    public String pro(String proType) throws Exception {
-    	System.out.println("proType:"+proType);
-    	File f = new File(file);
+	private String proString = "pro.json";
+
+    @RequestMapping(path = "{UserId}", method = RequestMethod.GET)
+    public String pro(@PathVariable(value = "proType") String UserId) throws Exception {
+    	String fname = file + UserId +File.separator+proString;
+    	File f = new File(fname);
     	if(!f.exists()) {
     		throw new Exception("no file:"+f.toString());
     	};
     	
-    	ObjectMapper objectMapper = new ObjectMapper();
-    	Pro[] pros = objectMapper.readValue(FileToString(f), Pro[].class);
-    	
-    	List<Pro> list = new ArrayList<Pro>();
-    	if((!"".equals(proType)) && (proType != null)) {
-    		System.out.println("1:");
-        	for (Pro pro : pros) {
-        		if(pro.getProType().equals(proType)) {
-        			list.add(pro);
-        		}
-            }
-    	}else {
-    		System.out.println("2:");
-    		for (Pro pro : pros) {
-        		list.add(pro);
-            }
-    	}
-    	
-    	return objectMapper.writeValueAsString(list);
+    	return FileToString(f);
     }
-    
-    @RequestMapping(path = "findprotype")
-    public String typePro(String name) throws Exception {
+    @RequestMapping(path = "cartinfo")
+    public String typePro(String UserId) throws Exception {
     	File f = new File(typeFile);
     	if(!f.exists()) {
     		throw new Exception("no file:"+f.toString());
     	};
+    	System.out.println(UserId);
     	return FileToString(f);
     }
     public String FileToString(File f){
@@ -90,8 +64,11 @@ public class TestController {
         } catch (IOException e) {
             
 
-        }        
+        }
+        System.out.println("-------------------------------------");
+        System.out.println(result);
         return result;
     }
+
 
 }
