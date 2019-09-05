@@ -27,7 +27,6 @@ public class UserController {
     private String typeFile;
 	@Value("${pro.order}")
 	private String typeFile1;
-	private String proString = "pro.json";
 	
 	  @RequestMapping(path = "login", method = RequestMethod.POST)
 	    public String pro(@RequestParam(value = "userName") String userName,
@@ -38,7 +37,6 @@ public class UserController {
 	    		throw new Exception("no file:"+f.toString());
 	    	};
 	    	
-	    	 User userc=new User();
 	    	 String strJon=utils.FileToString(f);
 	    	 List<User> userList = new ArrayList<User>();
 	    	 JSONArray jsonArray = JSONArray.fromObject(strJon);
@@ -52,7 +50,6 @@ public class UserController {
 	    	  for (User user : userList) {
 	    	      if(user.getUserName().equals(userName)&&user.getPassword().equals(password)) { 
 	    		     printuser=JSON.toJSONString(user); 
-	    		     userc=user;
 	    		      break;
 	    	      }else {		 
 	    	    	  printuser=""; 

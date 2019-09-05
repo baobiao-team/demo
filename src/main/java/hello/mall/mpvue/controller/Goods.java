@@ -16,8 +16,6 @@ public class Goods {
 	
 	private String proDisc;
 	
-	private String proImg;
-
 	public String getProId() {
 		return proId;
 	}
@@ -74,18 +72,9 @@ public class Goods {
 		this.proDisc = proDisc;
 	}
 
-	public String getProImg() {
-		return proImg;
-	}
-
-	public void setProImg(String proImg) {
-		this.proImg = proImg;
-	}
-
 	@Override
 	public String toString() {
-		return "{proId=" + proId + ", proName=" + proName + ", proPrice=" + proPrice + ", proAddress="
-				+ proAddress + ", proType=" + proType + ", proNum=" + proNum + ", proDisc=" + proDisc + ", proImg="
-				+ proImg + "}";
+		return "Goods [proId=" + proId + ", proName=" + proName + ", proPrice=" + proPrice + ", proAddress="
+				+ proAddress + ", proType=" + proType + ", proNum=" + proNum + ", proDisc=" + proDisc + "]";
 	}
 }
