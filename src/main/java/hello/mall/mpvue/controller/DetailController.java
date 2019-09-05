@@ -43,10 +43,10 @@ public class DetailController {
  
 		  for (Goods goods : goodsList) {
 		      if(goods.getProId().equals(proId)) { 
-			     printgoods=JSON.toJSONString(goods); 
+		    	  printgoods=JSON.toJSONString(goods); 
 			      break;
 		      }else {		 
-			  printgoods="无此商品！"; 
+		    	  printgoods=""; 
 			  }
 		  }
          return printgoods;
