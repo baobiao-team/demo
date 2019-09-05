@@ -40,7 +40,7 @@ public class UserController {
 	private String proString = "pro.json";
 	
 	  @RequestMapping(path = "login", method = RequestMethod.POST)
-	    public String pro(@RequestParam(value = "username") String username,
+	    public String pro(@RequestParam(value = "userName") String userName,
 	    		@RequestParam(value = "password") String password) throws Exception {
 	    	//String fname = file + proUser +File.separator+proString;
 	    	File f = new File(typeFile);
@@ -61,7 +61,7 @@ public class UserController {
 	        }
               
 	    	  for (User user : userList) {
-	    	      if(user.getUsername().equals(username)&&user.getPassword().equals(password)) { 
+	    	      if(user.getUserName().equals(userName)&&user.getPassword().equals(password)) { 
 	    		     printuser=JSON.toJSONString(user); 
 	    		     userc=user;
 	    		      break;

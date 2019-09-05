@@ -25,7 +25,7 @@ public class OrderController {
 	
 	
   @RequestMapping(path = "listpro", method = RequestMethod.GET)
-   public String pro(@RequestParam(value = "userid") String userid,
+   public String pro(@RequestParam(value = "userId") String userId,
 		   @RequestParam(value = "orderStatus") String orderStatus) throws Exception {
 	  
 	        File f = new File(typeFile);
@@ -46,7 +46,7 @@ public class OrderController {
 	        }
        
 	    	  for (Order order : orderList) {
-	    	      if(order.getUserId().equals(userid)&&order.getOrderStatus().equals(orderStatus)) { 
+	    	      if(order.getUserId().equals(userId)&&order.getOrderStatus().equals(orderStatus)) { 
 	    		     printorder=JSON.toJSONString(order); 
 	    		      break;
 	    	      }else {		 

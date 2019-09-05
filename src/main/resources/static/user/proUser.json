@@ -1,29 +1,29 @@
 [{
-		"username": "tom",
+		"userName": "tom",
 		"password": "123456",
-		"phone": 18829076532,
-		"userid": 1,
-		"address": "西安市雁塔区tom小区"
+		"userTel": 18829076532,
+		"userId": 1,
+		"userAddress": "西安市雁塔区tom小区"
 	},
 	{
-		"username": "jerry",
+		"userName": "jerry",
 		"password": "abcdef",
-		"phone": 13191632564,
-		"userid": 2,
-		"address": "西安市高新区jerry之家"
+		"userTel": 13191632564,
+		"userId": 2,
+		"userAddress": "西安市高新区jerry之家"
 	},
 	{
-		"username": "张三",
+		"userName": "张三",
 		"password": "zhangsan",
-		"phone": 13191632564,
-		"userid": 3,
-		"address": "西安市长安区张家庄"
+		"userTel": 13191632564,
+		"userId": 3,
+		"userAddress": "西安市长安区张家庄"
 	},
 	{
-		"username": "李四",
+		"userName": "李四",
 		"password": "lisi",
-		"phone": 13191632564,
-		"userid": 4,
-		"address": "西安市未央区李家村"
+		"userTel": 13191632564,
+		"userId": 4,
+		"userAddress": "西安市未央区李家村"
 	}
 ]
