@@ -55,7 +55,7 @@ public class UserController {
 	    		     userc=user;
 	    		      break;
 	    	      }else {		 
-	    	    	  printuser="用户名或密码错误"; 
+	    	    	  printuser=""; 
 	    		  }
 	    	  }
 	        System.out.println(printuser);
