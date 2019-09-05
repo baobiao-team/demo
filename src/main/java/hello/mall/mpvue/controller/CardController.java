@@ -25,7 +25,7 @@ public class CardController {
     	File f = new File(typeFile);
     	if(!f.exists()) {
     		throw new Exception("no file:"+f.toString());
-    	};
+    	}
     	ObjectMapper objectMapper = new ObjectMapper();
     	Cart[] cart = objectMapper.readValue(utils.FileToString(f), Cart[].class);
     	

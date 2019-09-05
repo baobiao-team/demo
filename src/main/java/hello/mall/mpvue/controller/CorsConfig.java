@@ -14,7 +14,8 @@ public class CorsConfig {
      * cors support
      * @return
      */
-    @Bean
+    @SuppressWarnings("rawtypes")
+	@Bean
     public FilterRegistrationBean corsFilter() {
         // 注册CORS过滤器
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -27,7 +28,8 @@ public class CorsConfig {
         //        config.setMaxAge(3600L);
 
         source.registerCorsConfiguration("/**", config);
-        FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
+        @SuppressWarnings("unchecked")
+		FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
         bean.setOrder(0);
         return bean;
     }
