@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import hello.mall.mpvue.been.Pro;
+import hello.mall.mpvue.controller.utils.utils;
 
 @RestController
 @RequestMapping("/user/proinfouser")
@@ -30,7 +31,7 @@ public class TestController {
 	@Value("${pro.type}")
     private String typeFile;
 	
-    @RequestMapping(path = "findall", method = RequestMethod.GET)
+    @RequestMapping(path = "search", method = RequestMethod.GET)
     public String pro(String proType) throws Exception {
     	File f = new File(file);
     	if(!f.exists()) {
@@ -38,18 +39,16 @@ public class TestController {
     	};
     	
     	ObjectMapper objectMapper = new ObjectMapper();
-    	Pro[] pros = objectMapper.readValue(FileToString(f), Pro[].class);
+    	Pro[] pros = objectMapper.readValue(utils.FileToString(f), Pro[].class);
     	
     	List<Pro> list = new ArrayList<Pro>();
     	if((!"".equals(proType)) && (proType != null)) {
-    		System.out.println("1:");
         	for (Pro pro : pros) {
         		if(pro.getProType().equals(proType)) {
         			list.add(pro);
         		}
             }
     	}else {
-    		System.out.println("2:");
     		for (Pro pro : pros) {
         		list.add(pro);
             }
@@ -64,33 +63,7 @@ public class TestController {
     	if(!f.exists()) {
     		throw new Exception("no file:"+f.toString());
     	};
-    	return FileToString(f);
-    }
-    public String FileToString(File f){
-
-        BufferedReader br = null;
-        String result = null;
-        try {
-
-//            br = new BufferedReader(new InputStreamReader(getInputStream(path)));
-        	FileInputStream fin = new FileInputStream(f);
-            br = new BufferedReader(new InputStreamReader(fin,"UTF-8"));
-            StringBuffer message=new StringBuffer();
-            String line = null;
-            while((line = br.readLine()) != null) {
-                message.append(line);
-            }
-            if (br != null) {
-                br.close();
-            }
-            String defaultString=message.toString();
-            result=defaultString.replace("\r\n", "").replaceAll(" +", "");
-
-        } catch (IOException e) {
-            
-
-        }        
-        return result;
+    	return utils.FileToString(f);
     }
 
 }

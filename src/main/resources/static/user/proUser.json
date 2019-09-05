@@ -1,0 +1,29 @@
+[{
+		"username": "tom",
+		"password": "123456",
+		"phone": 18829076532,
+		"userid": 1,
+		"address": "西安市雁塔区tom小区"
+	},
+	{
+		"username": "jerry",
+		"password": "abcdef",
+		"phone": 13191632564,
+		"userid": 2,
+		"address": "西安市高新区jerry之家"
+	},
+	{
+		"username": "张三",
+		"password": "zhangsan",
+		"phone": 13191632564,
+		"userid": 3,
+		"address": "西安市长安区张家庄"
+	},
+	{
+		"username": "李四",
+		"password": "lisi",
+		"phone": 13191632564,
+		"userid": 4,
+		"address": "西安市未央区李家村"
+	}
+]
