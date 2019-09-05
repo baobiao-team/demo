@@ -1,29 +1,30 @@
-[{
-		"username": "tom",
+[
+	{
+		"userName": "tom",
 		"password": "123456",
-		"phone": 18829076532,
-		"userid": 1,
-		"address": "è¥¿å®‰å¸‚é›å¡”åŒºtomå°åŒº"
+		"userTel": 18829076532,
+		"userId": 1,
+		"userAddress": "Î÷°²ÊĞÑãËşÇøtomĞ¡Çø"
 	},
 	{
-		"username": "jerry",
+		"userName": "jerry",
 		"password": "abcdef",
-		"phone": 13191632564,
-		"userid": 2,
-		"address": "è¥¿å®‰å¸‚é«˜æ–°åŒºjerryä¹‹å®¶"
+		"userTel": 13191632564,
+		"userId": 2,
+		"userAddress": "Î÷°²ÊĞ¸ßĞÂÇøjerryÖ®¼Ò"
 	},
 	{
-		"username": "å¼ ä¸‰",
+		"userName": "ÕÅÈı",
 		"password": "zhangsan",
-		"phone": 13191632564,
-		"userid": 3,
-		"address": "è¥¿å®‰å¸‚é•¿å®‰åŒºå¼ å®¶åº„"
+		"userTel": 13191632564,
+		"userId": 3,
+		"userAddress": "Î÷°²ÊĞ³¤°²ÇøÕÅ¼Ò×¯"
 	},
 	{
-		"username": "æå››",
+		"userName": "ÀîËÄ",
 		"password": "lisi",
-		"phone": 13191632564,
-		"userid": 4,
-		"address": "è¥¿å®‰å¸‚æœªå¤®åŒºæå®¶æ‘"
+		"userTel": 13191632564,
+		"userId": 4,
+		"userAddress": "Î÷°²ÊĞÎ´ÑëÇøÀî¼Ò´å"
 	}
 ]

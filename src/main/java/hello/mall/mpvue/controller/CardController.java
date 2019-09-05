@@ -20,10 +20,8 @@ public class CardController {
 	@Value("${pro.card}")
     private String typeFile;
 	
-
-   
     @RequestMapping
-    public String typePro(String UserId) throws Exception {
+    public String typePro(String userId) throws Exception {
     	File f = new File(typeFile);
     	if(!f.exists()) {
     		throw new Exception("no file:"+f.toString());
@@ -33,7 +31,7 @@ public class CardController {
     	
     	List<Cart> list = new ArrayList<Cart>();
     	for (Cart g : cart) {
-    		if(g.getUserId().equals(UserId)) {
+    		if(g.getUserId().equals(userId)) {
     			list.add(g);
     		}
         }

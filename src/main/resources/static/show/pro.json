@@ -1,13 +1,11 @@
 [
-	      {
-	        "proId": 0,
-	        "proName": "æ³Šå°”å´–èœœèœœå…‰é¢è†œï¼ˆ5ç‰‡ç›’è£…ï¼‰",
-			"proType": "010",
-	        
-	        "proPrice": "86",
-	        "proAddress": "88",
-	        "proNum": "8.8",
-			"proDisc":"14ä¸‡è¯„è®º 97%å¥½è¯„", 
-			"proImg": "https://a3.vimage1.com/upload/merchandise/pdcvis/2017/08/21/142/fb2960bf8e074d029c24315279289c19-5_218x274_70.jpg"
-	      }
+	{
+	        "proId": 22,
+	        "proName": "²´¶ûÑÂÃÛÃÛ¹âÃæÄ¤£¨5Æ¬ºĞ×°£©",
+			"proType": "020",
+	        "proPrice": "348.00",
+	        "proAddress": "348.00",
+	        "proNum": "8",
+			"proDisc":"14ÍòÆÀÂÛ 97%ºÃÆÀ"
+	 }
 ]

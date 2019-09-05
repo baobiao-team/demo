@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
@@ -19,16 +20,13 @@ import hello.mall.mpvue.controller.utils.utils;
 @RequestMapping("/user/proinfouser")
 public class DetailController {
 	
-	@Value("${pro.goods}")
+	@Value("${pro.classify}")
     private String file;
 	
-	private String proString = "goods.json";
-	
-    @RequestMapping(path = "{proId}", method = RequestMethod.GET)
-    public String detail(@PathVariable(value = "proId") String proId) throws Exception {
+    @RequestMapping
+    public String detail(@RequestParam(value = "proId") String proId) throws Exception {
     	
-    	String fname = file +proString;
-    	File f = new File(fname);
+    	File f = new File(file);
     	String printgoods=null;
     	if(!f.exists()) {
     		throw new Exception("no file:"+f.toString());

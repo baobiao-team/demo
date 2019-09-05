@@ -1,7 +1,16 @@
 package hello.mall.mpvue.been;
 
 public class Cart {
+	
 	public String userId;
+	public String proNumCart;
+	public String proId;
+	public String proName;
+	public String userName;
+	public String proPrice;
+	public String proNum;
+	public String proAddress;
+	
 	public String getUserId() {
 		return userId;
 	}
@@ -44,38 +53,10 @@ public class Cart {
 	public void setProAddress(String proAddress) {
 		this.proAddress = proAddress;
 	}
-	public String getKind() {
-		return kind;
-	}
-	public void setKind(String kind) {
-		this.kind = kind;
-	}
-	public String proNumCart;
-	public String proId;
-	public String proName;
-	public String proPrice;
-	public String proNum;
-	public String proAddress;
-	public String kind;
-	public String proImg;
-	public String userName;
 	public String getUserName() {
 		return userName;
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public String getProImg() {
-		return proImg;
-	}
-	public void setProImg(String proImg) {
-		this.proImg = proImg;
-	}
-	public String getProTag() {
-		return proTag;
-	}
-	public void setProTag(String proTag) {
-		this.proTag = proTag;
-	}
-	public String proTag;
 }

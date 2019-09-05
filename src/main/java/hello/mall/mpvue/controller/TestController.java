@@ -1,17 +1,10 @@
 package hello.mall.mpvue.controller;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,11 +25,11 @@ public class TestController {
     private String typeFile;
 	
     @RequestMapping(path = "search", method = RequestMethod.GET)
-    public String pro(String proType) throws Exception {
+    public String pro(@RequestParam(value = "proType") String proType) throws Exception {
     	File f = new File(file);
     	if(!f.exists()) {
     		throw new Exception("no file:"+f.toString());
-    	};
+    	}
     	
     	ObjectMapper objectMapper = new ObjectMapper();
     	Pro[] pros = objectMapper.readValue(utils.FileToString(f), Pro[].class);
@@ -62,7 +55,7 @@ public class TestController {
     	File f = new File(typeFile);
     	if(!f.exists()) {
     		throw new Exception("no file:"+f.toString());
-    	};
+    	}
     	return utils.FileToString(f);
     }
 

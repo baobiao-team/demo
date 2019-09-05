@@ -1,51 +1,44 @@
 package hello.mall.mpvue.dao;
 
 public class User {
-	private String username;    
-	private String password;   
-	private String phone;
-	private String userid;
-	private String address;
-	public String getUsername() {        
-		return username;    
-		}     
-	public void setUsername(String username) {
-		this.username = username;    
-		}     
-	public String getPassword() {       
-		return password;    
-		}     
-	public void setPassword(String password) {  
-		this.password = password;    
-		}   
-	public String getPhone() {
-		return phone;
+	private String userId;
+	private String userName;
+	private String userTel;
+	private String userAddress;
+	private String password;
+	public String getUserId() {
+		return userId;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
-	public String getUserid() {
-		return userid;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public String getAddress() {
-		return address;
+	public String getUserTel() {
+		return userTel;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setUserTel(String userTel) {
+		this.userTel = userTel;
 	}
-    @Override    
-    public String toString() {     
-    	return "Login{" +               
-    "username='" + username + '\'' +             
-    ", password='" + password + '\'' +   
-     ", phone='" + phone + '\'' +
-      ", userid='" + userid + '\'' +
-       ", address='" + address + '\'' +
-    '}';  
-    	}
-	
-	
+	public String getUserAddress() {
+		return userAddress;
+	}
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", userTel=" + userTel + ", password=" + password
+				+ ", userAddress=" + userAddress + "]";
+	}
 }

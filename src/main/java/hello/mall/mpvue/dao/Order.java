@@ -1,14 +1,14 @@
 package hello.mall.mpvue.dao;
 
 public class Order {
-	private String userId;      
+	private String userId;
+	private String orderStatue;
 	private String orderId;
 	private String proId;
 	private String storeId;
 	private String proNumOrder;    
-	private double priPrice;   
+	private double proPrice;   
 	private String orderDiscount;
-	private String orderStatus;
 	
 	public String getUserId() {
 		return userId;
@@ -40,11 +40,11 @@ public class Order {
 	public void setProNumOrder(String proNumOrder) {
 		this.proNumOrder = proNumOrder;
 	}
-	public double getPriPrice() {
-		return priPrice;
+	public double getProPrice() {
+		return proPrice;
 	}
-	public void setPriPrice(double priPrice) {
-		this.priPrice = priPrice;
+	public void setProPrice(double proPrice) {
+		this.proPrice = proPrice;
 	}
 	public String getOrderDiscount() {
 		return orderDiscount;
@@ -52,16 +52,16 @@ public class Order {
 	public void setOrderDiscount(String orderDiscount) {
 		this.orderDiscount = orderDiscount;
 	}
-	public String getOrderStatus() {
-		return orderStatus;
+	public String getOrderStatue() {
+		return orderStatue;
 	}
-	public void setOrderStatus(String orderStatus) {
-		this.orderStatus = orderStatus;
+	public void setOrderStatue(String orderStatue) {
+		this.orderStatue = orderStatue;
 	}
 	@Override
 	public String toString() {
 		return "Order [userId=" + userId + ", orderId=" + orderId + ", proId=" + proId + ", storeId=" + storeId
-				+ ", proNumOrder=" + proNumOrder + ", priPrice=" + priPrice + ", orderDiscount=" + orderDiscount
-				+ ", orderStatus=" + orderStatus + "]";
+				+ ", proNumOrder=" + proNumOrder + ", priPrice=" + proPrice + ", orderDiscount=" + orderDiscount
+				+ ", orderStatus=" + orderStatue + "]";
 	}
 }

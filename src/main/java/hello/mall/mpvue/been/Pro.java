@@ -9,7 +9,6 @@ public class Pro {
 	public String proAddress;
 	public String proNum;
 	public String proDisc;
-	public String proImg;
 	public String getProId() {
 		return proId;
 	}
@@ -52,13 +51,5 @@ public class Pro {
 	public void setProDisc(String proDisc) {
 		this.proDisc = proDisc;
 	}
-	public String getProImg() {
-		return proImg;
-	}
-	public void setProImg(String proImg) {
-		this.proImg = proImg;
-	}
-
-	
 	
 }
