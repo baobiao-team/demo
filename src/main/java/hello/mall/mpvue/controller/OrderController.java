@@ -27,7 +27,6 @@ public class OrderController {
   @RequestMapping(path = "listpro", method = RequestMethod.GET)
    public String pro(@RequestParam(value = "userId") String userId,
 	   @RequestParam(value = "orderStatue") String orderStatue) throws Exception {
-  
         File f = new File(typeFile);
     	String printorder=null;
     	if(!f.exists()) {
