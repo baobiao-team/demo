@@ -32,7 +32,6 @@ public class TestController {
 	
     @RequestMapping(path = "findall", method = RequestMethod.GET)
     public String pro(String proType) throws Exception {
-    	System.out.println("proType:"+proType);
     	File f = new File(file);
     	if(!f.exists()) {
     		throw new Exception("no file:"+f.toString());
@@ -55,7 +54,7 @@ public class TestController {
         		list.add(pro);
             }
     	}
-    	
+
     	return objectMapper.writeValueAsString(list);
     }
     
