@@ -16,45 +16,45 @@ import hello.mall.mpvue.controller.utils.utils;
 import hello.mall.mpvue.dao.Order;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+
 @RestController
 @RequestMapping("/user/orderinfo")
 public class OrderController {
-	
+
 	@Value("${pro.order}")
 	private String typeFile;
-	
-	
-  @RequestMapping(path = "listpro", method = RequestMethod.GET)
-   public String pro(@RequestParam(value = "userId") String userId,
-	   @RequestParam(value = "orderStatue") String orderStatue) throws Exception {
-        File f = new File(typeFile);
-    	List<Order> printorderlist=new ArrayList<Order>();
-    	if(!f.exists()) {
-    		throw new Exception("no file:"+f.toString());
-    	}
-    	
-    	 String strJon1=utils.FileToString(f);
-    	 List<Order> orderList = new ArrayList<Order>();
-    	 JSONArray jsonArray1 = JSONArray.fromObject(strJon1);
-        for (int i = 0; i < jsonArray1.size(); i++ )
-        {
-            JSONObject jsonObject = jsonArray1.getJSONObject(i);
-            Order  order = (Order)JSONObject.toBean(jsonObject, Order.class);
-            orderList.add(order);
-        }
-   
-    	  for (Order order : orderList) {
-    		  if(orderStatue.equals("")) {
-    			  if(order.getUserId().equals(userId)) {	  
-    				  printorderlist.add(order);
-    			  }
-    		  }
-    		  
-    		  else if(order.getUserId().equals(userId)&&order.getOrderStatue().equals(orderStatue)) { 
-    		     printorderlist.add(order);
-    		      break;
-    	      }
-    	  }
-        return JSON.toJSONString(printorderlist);
-    }
+
+	@RequestMapping(path = "listpro", method = RequestMethod.GET)
+	public String pro(@RequestParam(value = "userId") String userId,
+			@RequestParam(value = "orderStatue") String orderStatue) throws Exception {
+		File f = new File(typeFile);
+		List<Order> printorderlist = new ArrayList<Order>();
+		if (!f.exists()) {
+			throw new Exception("no file:" + f.toString());
+		}
+
+		String strJon1 = utils.FileToString(f);
+		List<Order> orderList = new ArrayList<Order>();
+		JSONArray jsonArray1 = JSONArray.fromObject(strJon1);
+		for (int i = 0; i < jsonArray1.size(); i++) {
+			JSONObject jsonObject = jsonArray1.getJSONObject(i);
+			Order order = (Order) JSONObject.toBean(jsonObject, Order.class);
+			orderList.add(order);
+		}
+
+		for (Order order : orderList) {
+			if (orderStatue.equals("")) {
+				if (order.getUserId().equals(userId)) {
+					printorderlist.add(order);
+				}
+			}
+
+			else if (order.getUserId().equals(userId) && order.getOrderStatue().equals(orderStatue)) {
+				printorderlist.add(order);
+				break;
+			}
+		}
+		return JSON.toJSONString(printorderlist);
+	}
+
 }

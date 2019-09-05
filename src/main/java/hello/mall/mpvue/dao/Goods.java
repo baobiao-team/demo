@@ -1,4 +1,4 @@
-package hello.mall.mpvue.controller;
+package hello.mall.mpvue.dao;
 
 public class Goods {
 	

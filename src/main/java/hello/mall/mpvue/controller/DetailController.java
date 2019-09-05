@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSON;
 
 import hello.mall.mpvue.controller.utils.utils;
+import hello.mall.mpvue.dao.Goods;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
