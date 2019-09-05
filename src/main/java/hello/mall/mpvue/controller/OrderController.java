@@ -28,7 +28,7 @@ public class OrderController {
    public String pro(@RequestParam(value = "userId") String userId,
 	   @RequestParam(value = "orderStatue") String orderStatue) throws Exception {
         File f = new File(typeFile);
-    	String printorder=null;
+    	List<Order> printorderlist=new ArrayList<Order>();
     	if(!f.exists()) {
     		throw new Exception("no file:"+f.toString());
     	}
@@ -44,13 +44,17 @@ public class OrderController {
         }
    
     	  for (Order order : orderList) {
-    	      if(order.getUserId().equals(userId)&&order.getOrderStatue().equals(orderStatue)) { 
-    		     printorder=JSON.toJSONString(order); 
-    		      break;
-    	      }else {		 
-    	    	  printorder="未查询到相关订单"; 
+    		  if(orderStatue.equals("")) {
+    			  if(order.getUserId().equals(userId)) {	  
+    				  printorderlist.add(order);
+    			  }
     		  }
+    		  
+    		  else if(order.getUserId().equals(userId)&&order.getOrderStatue().equals(orderStatue)) { 
+    		     printorderlist.add(order);
+    		      break;
+    	      }
     	  }
-        return printorder;
+        return JSON.toJSONString(printorderlist);
     }
 }
