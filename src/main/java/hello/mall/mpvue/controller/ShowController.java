@@ -6,8 +6,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -17,51 +15,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import hello.mall.mpvue.been.Pro;
-
 @RestController
-@RequestMapping("/user/proinfouser")
-public class TestController {
+@RequestMapping("/show")
+public class ShowController {
 
-	@Value("${pro.classify}")
-    private String file;
-	@Value("${pro.type}")
-    private String typeFile;
+	@Value("${pro.show}")
+    private String filePath;
+
 	
-    @RequestMapping(path = "findall", method = RequestMethod.GET)
-    public String pro(String proType) throws Exception {
-    	System.out.println("proType:"+proType);
-    	File f = new File(file);
-    	if(!f.exists()) {
-    		throw new Exception("no file:"+f.toString());
-    	};
-    	
-    	ObjectMapper objectMapper = new ObjectMapper();
-    	Pro[] pros = objectMapper.readValue(FileToString(f), Pro[].class);
-    	
-    	List<Pro> list = new ArrayList<Pro>();
-    	if((!"".equals(proType)) && (proType != null)) {
-    		System.out.println("1:");
-        	for (Pro pro : pros) {
-        		if(pro.getProType().equals(proType)) {
-        			list.add(pro);
-        		}
-            }
-    	}else {
-    		System.out.println("2:");
-    		for (Pro pro : pros) {
-        		list.add(pro);
-            }
-    	}
-    	
-    	return objectMapper.writeValueAsString(list);
-    }
-    
-    @RequestMapping(path = "findprotype")
+	private String proString = "pro.json";
+
+
+    @RequestMapping(path = "all")
     public String typePro(String name) throws Exception {
-    	File f = new File(typeFile);
+    	File f = new File(filePath);
     	if(!f.exists()) {
     		throw new Exception("no file:"+f.toString());
     	};
@@ -90,7 +57,8 @@ public class TestController {
         } catch (IOException e) {
             
 
-        }        
+        }
+
         return result;
     }
 
