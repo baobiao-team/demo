@@ -1,10 +1,6 @@
 package hello.mall.mpvue.controller;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,18 +14,17 @@ import com.alibaba.fastjson.JSON;
 
 import hello.mall.mpvue.controller.utils.utils;
 import hello.mall.mpvue.dao.Order;
-import hello.mall.mpvue.dao.User;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 @RestController
-@RequestMapping("/consumer")
+@RequestMapping("/user/orderinfo")
 public class OrderController {
 	
 	@Value("${pro.order}")
 	private String typeFile;
 	
 	
-  @RequestMapping(path = "orderinfo", method = RequestMethod.GET)
+  @RequestMapping(path = "listpro", method = RequestMethod.GET)
    public String pro(@RequestParam(value = "userid") String userid,
 		   @RequestParam(value = "orderStatus") String orderStatus) throws Exception {
 	  

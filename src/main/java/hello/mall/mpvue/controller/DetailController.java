@@ -16,7 +16,7 @@ import net.sf.json.JSONObject;
 import hello.mall.mpvue.controller.utils.utils;
 
 @RestController
-@RequestMapping("/proinfouser")
+@RequestMapping("/user/proinfouser")
 public class DetailController {
 	
 	@Value("${pro.goods}")

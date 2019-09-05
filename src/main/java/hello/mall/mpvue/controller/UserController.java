@@ -28,7 +28,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 @RestController
-@RequestMapping("/classify")
+@RequestMapping("/store/storeuserinfo")
 public class UserController {
 
 	@Value("${pro.classify}")
@@ -39,7 +39,7 @@ public class UserController {
 	private String typeFile1;
 	private String proString = "pro.json";
 	
-	  @RequestMapping(path = "user", method = RequestMethod.GET)
+	  @RequestMapping(path = "login", method = RequestMethod.POST)
 	    public String pro(@RequestParam(value = "username") String username,
 	    		@RequestParam(value = "password") String password) throws Exception {
 	    	//String fname = file + proUser +File.separator+proString;
@@ -72,127 +72,5 @@ public class UserController {
 	        System.out.println(printuser);
 	        return printuser;
 	  }   
-//	        //////////////////////////订单操作 
-//	        if (userc!=null) {
-//	        File f1 = new File(typeFile1);
-//	    	String printorder=null;
-//	    	if(!f1.exists()) {
-//	    		throw new Exception("no file:"+f1.toString());
-//	    	};
-//	    	
-//	    	
-//	    	 String strJon1=utils.FileToString(f1);
-//	    	 List<Order> orderList = new ArrayList<Order>();
-//	    	 JSONArray jsonArray1 = JSONArray.fromObject(strJon1);
-//	        for (int i = 0; i < jsonArray1.size(); i++ )
-//	        {
-//	            JSONObject jsonObject = jsonArray1.getJSONObject(i);
-//	            Order  order = (Order)JSONObject.toBean(jsonObject, Order.class);
-//	            orderList.add(order);
-//	        }
-//       
-//	    	  for (Order order : orderList) {
-//	    	      if(order.getUserId().equals(userc.getUserid())) { 
-//	    		     printorder=JSON.toJSONString(order); 
-//	    		      break;
-//	    	      }else {		 
-//	    	    	  printorder="还没有订单哦"; 
-//	    		  }
-//	    	  }
-//	    	  System.out.println(printorder);
-//	        return printorder;
-//            }
-//	        return printuser;
-//	    }
-//	  
-//	  
-//	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	/////////////////////////////////////////////////////////////////////////////////////////
-
-//    @RequestMapping(path = "user", method = RequestMethod.GET)
-//    public String pro(@RequestParam(value = "username") String username,
-//    		@RequestParam(value = "password") String password) throws Exception {
-//    	//String fname = file + proUser +File.separator+proString;
-//    	File f = new File(typeFile);
-//    	String printuser=null;
-//    	if(!f.exists()) {
-//    		throw new Exception("no file:"+f.toString());
-//    	};
-//    	
-//    	
-//    	 String strJon=utils.FileToString(f);
-//    	 List<User> userList = new ArrayList<User>();
-//    	 JSONArray jsonArray = JSONArray.fromObject(strJon);
-//        for (int i = 0; i < jsonArray.size(); i++ )
-//        {
-//            JSONObject jsonObject = jsonArray.getJSONObject(i);
-//            User  user = (User)JSONObject.toBean(jsonObject, User.class);
-//            userList.add(user);
-//        }
-//
-//    	  for (User user : userList) {
-//    	      if(user.getUsername().equals(username)&&user.getPassword().equals(password)) { 
-//    		     printuser=JSON.toJSONString(user); 
-//    		      break;
-//    	      }else {		 
-//    	    	  printuser="用户名或密码错误"; 
-//    		  }
-//    	  }
-//        System.out.println(printuser);
-//        return printuser;
-//    }
-    
-    
-    
-    
-//    @RequestMapping(path = "user")
-//    public String typePro(String name) throws Exception {
-//    	File f = new File(typeFile);
-//    	if(!f.exists()) {
-//    		throw new Exception("no file:"+f.toString());
-//    	};
-//    	return FileToString(f);
-//    }
-    
-   
-    
-    
-    public String FileToString(File f){
-
-        BufferedReader br = null;
-        String result = null;
-        try {
-        	
-//            br = new BufferedReader(new InputStreamReader(getInputStream(path)));
-        	FileInputStream fin = new FileInputStream(f);
-            br = new BufferedReader(new InputStreamReader(fin,"UTF-8"));
-            StringBuffer message=new StringBuffer();
-            String line = null;
-            while((line = br.readLine()) != null) {
-                message.append(line);
-            }
-            if (br != null) {
-                br.close();
-            }
-            String defaultString=message.toString();
-            result=defaultString.replace("\r\n", "").replaceAll(" +", "");
-
-        } catch (IOException e) {
-            
-
-        }
-
-        return result;
-    }
 
 }
