@@ -41,7 +41,7 @@ public class CardController {
 
 		return objectMapper.writeValueAsString(list);
 	}
-	
+
 	@RequestMapping(path = "order", method = RequestMethod.POST)
 	public String submitOrder(@RequestBody Object order) {
 		return JSON.toJSONString(order);

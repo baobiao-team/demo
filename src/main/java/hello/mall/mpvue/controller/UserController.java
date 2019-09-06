@@ -22,41 +22,41 @@ import net.sf.json.JSONObject;
 public class UserController {
 
 	@Value("${pro.classify}")
-    private String file;
+	private String file;
 	@Value("${pro.user}")
-    private String typeFile;
+	private String typeFile;
 	@Value("${pro.order}")
 	private String typeFile1;
-	
-	  @RequestMapping(path = "login", method = RequestMethod.POST)
-	    public String pro(@RequestParam(value = "userName") String userName,
-	    		@RequestParam(value = "password") String password) throws Exception {
-	    	File f = new File(typeFile);
-	    	String printuser=null;
-	    	if(!f.exists()) {
-	    		throw new Exception("no file:"+f.toString());
-	    	};
-	    	
-	    	 String strJon=utils.FileToString(f);
-	    	 List<User> userList = new ArrayList<User>();
-	    	 JSONArray jsonArray = JSONArray.fromObject(strJon);
-	        for (int i = 0; i < jsonArray.size(); i++ )
-	        {
-	            JSONObject jsonObject = jsonArray.getJSONObject(i);
-	            User  user = (User)JSONObject.toBean(jsonObject, User.class);
-	            userList.add(user);
-	        }
-              
-	    	  for (User user : userList) {
-	    	      if(user.getUserName().equals(userName)&&user.getPassword().equals(password)) { 
-	    		     printuser=JSON.toJSONString(user); 
-	    		      break;
-	    	      }else {		 
-	    	    	  printuser=""; 
-	    		  }
-	    	  }
-	        System.out.println(printuser);
-	        return printuser;
-	  }   
+
+	@RequestMapping(path = "login", method = RequestMethod.POST)
+	public String pro(String userName, String password) throws Exception {
+		File f = new File(typeFile);
+		String printuser = null;
+		if (!f.exists()) {
+			throw new Exception("no file:" + f.toString());
+		}
+
+		String strJon = utils.FileToString(f);
+		List<User> userList = new ArrayList<User>();
+		JSONArray jsonArray = JSONArray.fromObject(strJon);
+		for (int i = 0; i < jsonArray.size(); i++) {
+			JSONObject jsonObject = jsonArray.getJSONObject(i);
+			User user = (User) JSONObject.toBean(jsonObject, User.class);
+			userList.add(user);
+		}
+
+		System.out.println(userName);
+		System.out.println(password);
+		for (User user : userList) {
+			if (user.getUserName().equals(userName) && user.getPassword().equals(password)) {
+				printuser = JSON.toJSONString(user);
+				break;
+			} else {
+				printuser = "";
+			}
+		}
+		System.out.println("---"+printuser);
+		return printuser;
+	}
 
 }

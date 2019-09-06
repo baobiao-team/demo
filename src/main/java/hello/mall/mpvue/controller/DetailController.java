@@ -19,38 +19,37 @@ import net.sf.json.JSONObject;
 @RestController
 @RequestMapping("/user/proinfouser")
 public class DetailController {
-	
+
 	@Value("${pro.classify}")
-    private String file;
-	
-    @RequestMapping
-    public String detail(@RequestParam(value = "proId") String proId) throws Exception {
-    	
-    	File f = new File(file);
-    	String printgoods=null;
-    	if(!f.exists()) {
-    		throw new Exception("no file:"+f.toString());
-    	}
-    	
-    	String strJon=utils.FileToString(f);
-    	 List<Goods> goodsList = new ArrayList<Goods>();
-    	 JSONArray jsonArray = JSONArray.fromObject(strJon);
-         for (int i = 0; i < jsonArray.size(); i++ )
-         {
-             JSONObject jsonObject = jsonArray.getJSONObject(i);
-             Goods goods = (Goods)JSONObject.toBean(jsonObject, Goods.class);
-             goodsList.add(goods);
-         }
- 
-		  for (Goods goods : goodsList) {
-		      if(goods.getProId().equals(proId)) { 
-		    	  printgoods=JSON.toJSONString(goods); 
-			      break;
-		      }else {		 
-		    	  printgoods=""; 
-			  }
-		  }
-         return printgoods;
-    }
+	private String file;
+
+	@RequestMapping
+	public String detail(@RequestParam(value = "proId") String proId) throws Exception {
+
+		File f = new File(file);
+		String printgoods = null;
+		if (!f.exists()) {
+			throw new Exception("no file:" + f.toString());
+		}
+
+		String strJon = utils.FileToString(f);
+		List<Goods> goodsList = new ArrayList<Goods>();
+		JSONArray jsonArray = JSONArray.fromObject(strJon);
+		for (int i = 0; i < jsonArray.size(); i++) {
+			JSONObject jsonObject = jsonArray.getJSONObject(i);
+			Goods goods = (Goods) JSONObject.toBean(jsonObject, Goods.class);
+			goodsList.add(goods);
+		}
+
+		for (Goods goods : goodsList) {
+			if (goods.getProId().equals(proId)) {
+				printgoods = JSON.toJSONString(goods);
+				break;
+			} else {
+				printgoods = "";
+			}
+		}
+		return printgoods;
+	}
 
 }

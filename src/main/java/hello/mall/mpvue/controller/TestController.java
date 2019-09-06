@@ -20,43 +20,43 @@ import hello.mall.mpvue.controller.utils.utils;
 public class TestController {
 
 	@Value("${pro.classify}")
-    private String file;
+	private String file;
 	@Value("${pro.type}")
-    private String typeFile;
-	
-    @RequestMapping(path = "search", method = RequestMethod.GET)
-    public String pro(@RequestParam(value = "proType") String proType) throws Exception {
-    	File f = new File(file);
-    	if(!f.exists()) {
-    		throw new Exception("no file:"+f.toString());
-    	}
-    	
-    	ObjectMapper objectMapper = new ObjectMapper();
-    	Pro[] pros = objectMapper.readValue(utils.FileToString(f), Pro[].class);
-    	
-    	List<Pro> list = new ArrayList<Pro>();
-    	if((!"".equals(proType)) && (proType != null)) {
-        	for (Pro pro : pros) {
-        		if(pro.getProType().equals(proType)) {
-        			list.add(pro);
-        		}
-            }
-    	}else {
-    		for (Pro pro : pros) {
-        		list.add(pro);
-            }
-    	}
+	private String typeFile;
 
-    	return objectMapper.writeValueAsString(list);
-    }
-    
-    @RequestMapping(path = "findprotype")
-    public String typePro(String name) throws Exception {
-    	File f = new File(typeFile);
-    	if(!f.exists()) {
-    		throw new Exception("no file:"+f.toString());
-    	}
-    	return utils.FileToString(f);
-    }
+	@RequestMapping(path = "search", method = RequestMethod.GET)
+	public String pro(@RequestParam(value = "proType") String proType) throws Exception {
+		File f = new File(file);
+		if (!f.exists()) {
+			throw new Exception("no file:" + f.toString());
+		}
+
+		ObjectMapper objectMapper = new ObjectMapper();
+		Pro[] pros = objectMapper.readValue(utils.FileToString(f), Pro[].class);
+
+		List<Pro> list = new ArrayList<Pro>();
+		if ((!"".equals(proType)) && (proType != null)) {
+			for (Pro pro : pros) {
+				if (pro.getProType().equals(proType)) {
+					list.add(pro);
+				}
+			}
+		} else {
+			for (Pro pro : pros) {
+				list.add(pro);
+			}
+		}
+
+		return objectMapper.writeValueAsString(list);
+	}
+
+	@RequestMapping(path = "findprotype")
+	public String typePro(String name) throws Exception {
+		File f = new File(typeFile);
+		if (!f.exists()) {
+			throw new Exception("no file:" + f.toString());
+		}
+		return utils.FileToString(f);
+	}
 
 }

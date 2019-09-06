@@ -1,7 +1,7 @@
 		[{
 		"userId":1,
 		"proNumCart": "1",
-		"proId": "001",
+		"proId": 1,
         "proName": "红富士苹果",
 		"userName":"吉祥水果店",
 		"proPrice": "19.99",
@@ -10,7 +10,7 @@
       }, {
 		"userId":2,
 		"proNumCart": 2,
-		"proId": "002",
+		"proId": 2,
         "proName": "香蕉",
 		"userName":"吉祥水果店",
 		"proPrice": "9.99",
@@ -19,7 +19,7 @@
       }, {
 		"userId":2,
 		"proNumCart": 2,
-		"proId": "003",
+		"proId": 3,
         "proName": "蜜梨",
 		"userName":"吉祥水果店",
 		"proPrice": "19.99",
